@@ -6,6 +6,10 @@ document.getElementById("settings-button").addEventListener('click', openSetting
 
 var userName = localStorage.getItem('receivedName');
 
+if(username === null) {
+  userName = 'friend!';
+}
+
 function saveName() {
   localStorage.setItem("receivedName", userName);
 }
@@ -15,10 +19,6 @@ function changeName() {
   userName = document.getElementById('name-input').value;
 
   saveName();
-}
-
-if (userName == null) {
-   userName = "friend";
 }
 
 document.getElementById("name-form").addEventListener('submit', function(e) {
@@ -32,4 +32,4 @@ function getGreeting() {
    document.getElementById("greeting").innerHTML  = `Hello, ${userName}. Enjoy your day!`;
 }
 
-getGreeting();
+getGreeting()
